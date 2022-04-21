@@ -1,0 +1,13 @@
+.editorContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100vh;
+  background-color: gray;
+  overflow-y: scroll;
+}
+
+.editor {
+  margin: 1rem 2rem;
+  height: 100%;
+}
