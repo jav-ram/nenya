@@ -1,33 +1,53 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import { createEditor, BaseEditor, Descendant } from 'slate';
+import {
+  Editable, Slate, withReact, ReactEditor, RenderLeafProps,
+} from 'slate-react';
+
+import decorate from '../../compiler/decorate';
+import { CustomElement, CustomText } from './types';
+import Leaf from '../Leaf';
 
 import styles from './editor.module.css';
 
+declare module 'slate' {
+  interface CustomTypes {
+    Editor: BaseEditor & ReactEditor
+    Element: CustomElement
+    Text: CustomText,
+  }
+}
+
 type EditorPropsType = {
-  initialValue?: string,
-  onChange: (value: string) => void,
+  onChange: (value: Descendant[]) => void,
 };
 
+const initialValue: Descendant[] = [
+  {
+    type: 'paragraph',
+    children: [{ text: 'A line of text in a paragraph.' }],
+  },
+];
+
 const Editor = ({
-  initialValue = '',
   onChange,
 }: EditorPropsType) => {
-  const [value, setValue] = useState<string>(initialValue);
+  const [editor] = useState(() => withReact(createEditor()));
+  const editorDecorate = useCallback(decorate, []);
+  const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, []);
   return (
     <div
       className={styles.editorContainer}
     >
-      <div
-        className={styles.editor}
-        onChange={({ currentTarget: { nodeValue: v } }) => {
-          // for the inner state
-          setValue(v || '');
-          // for use outside the component
-          onChange(v || '');
+      <Slate
+        editor={editor}
+        value={initialValue}
+        onChange={(e) => {
+          onChange(e);
         }}
-        contentEditable
       >
-        {value}
-      </div>
+        <Editable decorate={editorDecorate} renderLeaf={renderLeaf} />
+      </Slate>
     </div>
   );
 };

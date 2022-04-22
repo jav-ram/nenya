@@ -1,0 +1,19 @@
+.heading {
+  font-family: MrJeeves;
+  color: #58180D;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.h1 {
+  font-size: 2.5rem;
+}
+
+.h2 {
+  font-size: 1.75rem;
+}
+
+.h3 {
+  font-size: 1.33rem;
+  border-bottom: 2px solid #c9ad6a;
+}

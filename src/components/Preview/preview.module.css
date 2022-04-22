@@ -1,0 +1,9 @@
+.previewContainer {
+  overflow: scroll;
+  height: 100vh;
+  display: flex;
+  gap: 2rem;
+  width: 55%;
+  justify-content: center;
+  flex-direction: column;
+}
