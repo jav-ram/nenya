@@ -1,0 +1,7 @@
+.page {
+  box-sizing: border-box;
+  background-color: yellow;
+  width: 816px;
+  height: 1056px;
+  padding: 32px 64px 57px 64px;
+}
