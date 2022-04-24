@@ -8,23 +8,25 @@ import styles from './paragraph.module.css';
 
 type ParagraphPropsType = {
   children: (string | ElementType)[] | string | ElementType,
+  isElegant?: boolean,
 };
 
 type PPropsType = {
   children: React.ReactNode,
+  isElegant?: boolean,
 };
 
-const P = ({ children }: PPropsType) => (
-  <p className={`p ${styles.paragraph}`}>{ children }</p>
+const P = ({ children, isElegant }: PPropsType) => (
+  <p className={`${styles.paragraph} ${isElegant && styles.elegant} p`}>{ children }</p>
 );
 
-const Paragraph = ({ children }: ParagraphPropsType) => {
+const Paragraph = ({ children, ...props }: ParagraphPropsType) => {
   if (typeof children === 'string') {
-    return <P>{ children }</P>;
+    return <P {...props}>{ children }</P>;
   }
   if (Array.isArray(children)) {
     return (
-      <P>
+      <P {...props}>
         {
           children.map((c) => <Element {...c as ElementType} />)
         }
@@ -33,7 +35,7 @@ const Paragraph = ({ children }: ParagraphPropsType) => {
   }
   if (Array.isArray(children.content)) {
     return (
-      <P>
+      <P {...props}>
         {
           children.content.map((c) => <Element {...c as ElementType} />)
         }
@@ -41,7 +43,7 @@ const Paragraph = ({ children }: ParagraphPropsType) => {
     );
   }
   return (
-    <P>
+    <P {...props}>
       <Element {...children} />
     </P>
   );
