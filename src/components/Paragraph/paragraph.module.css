@@ -1,4 +1,17 @@
 .paragraph {
+  text-transform: capitalize;
   font-size: 1rem;
   font-family: Solberry;
+}
+
+.elegant > span {
+  display: inline-block;
+}
+
+.elegant > span::first-letter {
+  float: left;
+  font-family: Cambridge;
+  font-size: 8rem;
+  line-height: 6rem;
+  color: #222;
 }

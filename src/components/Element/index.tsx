@@ -14,6 +14,9 @@ const Element = ({
   content,
 }: ElementType) => {
   switch (type) {
+    case 'elegantParagraph': {
+      return <Paragraph isElegant>{content}</Paragraph>;
+    }
     case 'paragraph': {
       return <Paragraph>{content}</Paragraph>;
     }

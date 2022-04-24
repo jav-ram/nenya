@@ -1,6 +1,8 @@
 import Prism from 'prismjs';
 import 'prismjs/components/prism-markdown';
 
+const inlineLanguage = Prism.languages.extend('markdown', {});
+
 const tokenize = (md: string) => {
   Prism.languages.markdown = Prism.languages.insertBefore('markdown', 'comment', {
     page: {
@@ -35,17 +37,19 @@ const tokenize = (md: string) => {
       },
     },
     elegantParagraph: {
-      pattern: /^&[^\n]+/m,
+      pattern: /&[^\r\n]+/g,
+      lookbehind: true,
       inside: {
-        punctuation: /&\n/,
-        ...Prism.languages.markdown,
+        punctuation: /&[\s]*|(\n)+|(\r)+/g,
+        ...inlineLanguage,
       },
     },
     paragraph: {
-      pattern: /[^\n]+/m,
+      pattern: /[^\r\n]+((\r|\n|\r\n)[^\r\n]+)*/g,
+      lookbehind: true,
       inside: {
-        punctuation: /\n/,
-        ...Prism.languages.markdown,
+        punctuation: /(\n)+|(\r)+/g,
+        ...inlineLanguage,
       },
     },
   });
