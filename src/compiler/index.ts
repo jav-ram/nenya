@@ -6,10 +6,18 @@ const inlineLanguage = Prism.languages.extend('markdown', {});
 const tokenize = (md: string) => {
   Prism.languages.markdown = Prism.languages.insertBefore('markdown', 'comment', {
     page: {
-      pattern: /(\{\{([^}}]*)\}\})/gm,
+      pattern: /(\{\{([^]*)\}\})/gm,
       alias: 'page',
       inside: {
         punctuation: /{{|}}$/,
+        ...Prism.languages.markdown,
+      },
+    },
+    innerBlock: {
+      pattern: /(\{([^}}]*)\})/m,
+      alias: 'innerBlock',
+      inside: {
+        punctuation: /{|}$/,
         ...Prism.languages.markdown,
       },
     },

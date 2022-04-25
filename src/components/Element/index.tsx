@@ -8,12 +8,19 @@ import Paragraph from '../Paragraph';
 import Link from '../Link';
 import { Heading1, Heading2, Heading3 } from '../Heading';
 import { ElementType } from './type';
+import InnerBlock from '../InnerBlock';
 
 const Element = ({
   type,
   content,
 }: ElementType) => {
   switch (type) {
+    case 'innerBlock': {
+      if (Array.isArray(content)) {
+        return <InnerBlock>{ content }</InnerBlock>;
+      }
+      return null;
+    }
     case 'elegantParagraph': {
       return <Paragraph isElegant>{content}</Paragraph>;
     }
