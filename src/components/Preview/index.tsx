@@ -51,8 +51,8 @@ const Preview = ({
   }, [value]);
   return (
     <div className={styles.previewContainer}>
-      { compiledContent.map(({ content }) => (
-        <Page content={content as ElementType[]} />
+      { compiledContent.map(({ content }, page) => (
+        <Page page={page + 1} content={content as ElementType[]} />
       ))}
     </div>
   );

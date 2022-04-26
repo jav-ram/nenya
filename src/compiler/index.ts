@@ -6,18 +6,32 @@ const inlineLanguage = Prism.languages.extend('markdown', {});
 const tokenize = (md: string) => {
   Prism.languages.markdown = Prism.languages.insertBefore('markdown', 'comment', {
     page: {
-      pattern: /(\{\{([^]*)\}\})/gm,
+      pattern: /\{\{([^]*?)\}\}/gm,
       alias: 'page',
       inside: {
-        punctuation: /{{|}}$/,
-        ...Prism.languages.markdown,
-      },
-    },
-    innerBlock: {
-      pattern: /(\{([^}}]*)\})/m,
-      alias: 'innerBlock',
-      inside: {
-        punctuation: /{|}$/,
+        punctuation: /^{{|}}$/,
+        innerBlock: {
+          pattern: /\{([^]*?)\}/gm,
+          inside: {
+            punctuation: /{|}/,
+            ...Prism.languages.markdown,
+          },
+        },
+        elegantParagraph: {
+          pattern: /&[^\r\n]+/g,
+          lookbehind: true,
+          inside: {
+            punctuation: /&[\s]*|(\n)+|(\r)+/g,
+            ...inlineLanguage,
+          },
+        },
+        paragraph: {
+          pattern: /&[^\r\n]+/g,
+          inside: {
+            punctuation: /(\n)+|(\r)+/g,
+            ...inlineLanguage,
+          },
+        },
         ...Prism.languages.markdown,
       },
     },
@@ -42,22 +56,6 @@ const tokenize = (md: string) => {
       alias: 'important',
       inside: {
         punctuation: /^#+/,
-      },
-    },
-    elegantParagraph: {
-      pattern: /&[^\r\n]+/g,
-      lookbehind: true,
-      inside: {
-        punctuation: /&[\s]*|(\n)+|(\r)+/g,
-        ...inlineLanguage,
-      },
-    },
-    paragraph: {
-      pattern: /[^\r\n]+((\r|\n|\r\n)[^\r\n]+)*/g,
-      lookbehind: true,
-      inside: {
-        punctuation: /(\n)+|(\r)+/g,
-        ...inlineLanguage,
       },
     },
   });
