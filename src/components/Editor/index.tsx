@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { createEditor, BaseEditor, Descendant } from 'slate';
 import {
   Editable, Slate, withReact, ReactEditor, RenderLeafProps,
@@ -32,7 +32,10 @@ const initialValue: Descendant[] = [
 const Editor = ({
   onChange,
 }: EditorPropsType) => {
-  const [editor] = useState(() => withReact(createEditor()));
+  const editor = useMemo(
+    () => withReact(createEditor()),
+    [],
+  );
   const editorDecorate = useCallback(decorate, []);
   const renderLeaf = useCallback((props: RenderLeafProps) => <Leaf {...props} />, []);
   return (

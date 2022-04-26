@@ -1,9 +1,11 @@
 .previewContainer {
-  overflow: scroll;
+  overflow-y: scroll;
+  padding: 1rem 0;
+  box-sizing: border-box;
   height: 100vh;
   display: flex;
   gap: 2rem;
   width: 55%;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
-}
+};
