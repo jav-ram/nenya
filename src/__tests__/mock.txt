@@ -1,6 +1,7 @@
+{{
 # The Homebrewery
 
-Welcome traveler from an antique land. Please sit and tell us of what you have seen. The unheard of monsters, who slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked. Of the vexing vocations and surprising skills you have seen.
+&Welcome traveler from an antique land. Please sit and tell us of what you have seen. The unheard of monsters, who slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked. Of the vexing vocations and surprising skills you have seen.
 
 ### Homebrew D&D made easy
 The Homebrewery makes the creation and sharing of authentic looking Fifth-Edition homebrews easy. It uses [Markdown](https://help.github.com/articles/markdown-basics/) with a little CSS magic to make your brews come to life.
@@ -33,3 +34,4 @@ This tool will **always** be free, never have ads, and I will never offer any "p
 
  If you want to save ink or have a monochrome printer, add the **Ink Friendly** snippet to your brew before you print
 }
+}}
