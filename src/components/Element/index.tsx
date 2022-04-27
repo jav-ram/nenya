@@ -42,7 +42,7 @@ const Element = ({
       return null;
     }
     case 'heading3': {
-      if (Array.isArray(content)) {
+      if (Array.isArray(content) && content.length > 1) {
         const inside = content[1] as ElementType;
         return <Heading3>{inside.content[0] as string}</Heading3>;
       }
