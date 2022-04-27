@@ -1,5 +1,6 @@
-import * as _ from 'lodash';
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
+import * as _ from 'lodash';
 import Element from '../Element';
 import { ElementType } from '../Element/type';
 import Footer from './footer';
@@ -25,14 +26,13 @@ const Page = ({ content, page }: PagePropsType) => {
   }, []);
   return (
     <div
-      className={styles.pageContainer}
+      className={`${styles.page} page`}
       style={{
         backgroundPositionX: `${offset}px`,
       }}
     >
-      <div className={styles.page}>
-        { /* eslint-disable-next-line react/no-array-index-key */ }
-        { content.map((element, idx) => <Element key={`page-${idx}`} {...element} />) }
+      <div className={styles.pageContent}>
+        { content.map((element, idx) => <Element key={`element-${idx}`} {...element} />)}
       </div>
       <Footer page={page} />
     </div>

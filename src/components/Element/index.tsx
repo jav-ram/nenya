@@ -58,7 +58,7 @@ const Element = ({
     }
     case 'txt': {
       const inside = content[0] as string;
-      if (!_.isEmpty(inside)) {
+      if (!_.isEmpty(inside.trim())) {
         return <span>{ inside }</span>;
       }
       return null;
@@ -77,7 +77,11 @@ const Element = ({
       return null;
     }
     default: {
-      return <span>{content[0] as string}</span>;
+      const inside = content[0] as string;
+      if (!_.isEmpty(inside.trim())) {
+        return <span>{ inside }</span>;
+      }
+      return null;
     }
   }
 };
