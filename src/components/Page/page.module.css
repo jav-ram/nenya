@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   box-shadow: 1px 4px 14px #888;
-  width: 816px;
-  min-height: 1056px;
+  width: 21.59cm;
+  min-height: 27.94cm;
+  height: 27.94cm;
   padding: 0px;
   background-image: url(../../assets/images/page.jpeg);
 };
@@ -18,8 +19,12 @@
   margin: 32px 64px 0px 64px;
   column-count: 2;
   column-gap: 2rem;
-  column-fill: balance;
-  height: 975px;
+  column-fill: auto;
+  height: 25.8cm;
+}
+
+.pageContent > * {
+  width: 8.3cm;
 }
 
 .pageNumber {

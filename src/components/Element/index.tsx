@@ -6,7 +6,9 @@ import B from '../Bold';
 import I from '../Italic';
 import Paragraph from '../Paragraph';
 import Link from '../Link';
-import { Heading1, Heading2, Heading3 } from '../Heading';
+import {
+  Heading1, Heading2, Heading3, Heading4,
+} from '../Heading';
 import { ElementType } from './type';
 import InnerBlock from '../InnerBlock';
 
@@ -45,6 +47,13 @@ const Element = ({
       if (Array.isArray(content) && content.length > 1) {
         const inside = content[1] as ElementType;
         return <Heading3>{inside.content[0] as string}</Heading3>;
+      }
+      return null;
+    }
+    case 'heading4': {
+      if (Array.isArray(content) && content.length > 1) {
+        const inside = content[1] as ElementType;
+        return <Heading4>{inside.content[0] as string}</Heading4>;
       }
       return null;
     }

@@ -9,17 +9,23 @@ type HeadingPropsType = {
 export const Heading1 = ({
   children,
 }: HeadingPropsType) => (
-  <h1 className={`h1 ${styles.heading} ${styles.h1}`}>{ children }</h1>
+  <h1 className={`${styles.h1} ${styles.heading} h1`}>{ children }</h1>
 );
 
 export const Heading2 = ({
   children,
 }: HeadingPropsType) => (
-  <h2 className={`h2 ${styles.heading} ${styles.h2}`}>{ children }</h2>
+  <h2 className={`${styles.h2} ${styles.heading} h2`}>{ children }</h2>
 );
 
 export const Heading3 = ({
   children,
 }: HeadingPropsType) => (
-  <h3 className={`h3 ${styles.heading} ${styles.h3}`}>{ children }</h3>
+  <h3 className={`${styles.h3} ${styles.heading} h3`}>{ children }</h3>
+);
+
+export const Heading4 = ({
+  children,
+}: HeadingPropsType) => (
+  <h4 className={`${styles.h4} ${styles.heading} h4`}>{ children }</h4>
 );
