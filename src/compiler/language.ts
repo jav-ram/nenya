@@ -31,6 +31,13 @@ const TTRPG_LANG = (() => {
           punctuation: /^###/,
         },
       },
+      heading4: {
+        pattern: /^#{4}(?!#)(.*)/m,
+        alias: 'important',
+        inside: {
+          punctuation: /^####/,
+        },
+      },
       elegantParagraph: {
         pattern: /&[^\r\n]+/gm,
         lookbehind: true,

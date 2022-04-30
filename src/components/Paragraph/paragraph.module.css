@@ -1,7 +1,9 @@
 .paragraph {
+  margin: 0px;
+  text-indent: 0.2cm;
   text-transform: capitalize;
-  font-size: 1rem;
-  font-family: Solberry;
+  font-size: 0.345cm;
+  font-family: BookSanity;
   white-space: break-spaces;
 }
 
@@ -15,8 +17,8 @@
 
 .elegant > span::first-letter {
   float: left;
-  font-family: Cambridge;
-  font-size: 8rem;
-  line-height: 6rem;
+  font-family: 'Solbera Imitation';
+  font-size: 1.8cm;
+  line-height: 1.3cm;
   color: #222;
 }
