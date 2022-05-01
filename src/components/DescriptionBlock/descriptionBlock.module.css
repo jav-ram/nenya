@@ -1,0 +1,50 @@
+.descriptionBlock {
+  --CircleSize: 0.2cm;
+  --BorderSize: 0.06cm;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0.5cm 0;
+  box-shadow: 1px 4px 14px #888;
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 0.18cm 0.2cm;
+  /* TODO: use border image */
+  border-left: var(--BorderSize) solid #58180D;
+  border-right: var(--BorderSize) solid #58180D;
+}
+
+.descriptionBlock :is(h1, h2, h3, h4){
+  margin: 0px 0px 0.2rem 0px;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.descriptionBlock:before, .descriptionBlock:after, .descriptionBlock *:first-child:before, .descriptionBlock *:first-child:after {
+  content: '';
+  height: var(--CircleSize);
+  width: var(--CircleSize);
+  position: absolute;
+  background: #58180D;
+  border-radius: 50%;
+}
+
+/* Top lef */
+.descriptionBlock:before {
+  left: calc(-1 * ((var(--CircleSize) / 2) + (var(--BorderSize) / 2)));
+  top: -0.135cm
+}
+/* Top right */
+.descriptionBlock:after {
+  right: -0.135cm;
+  top: -0.135cm;
+}
+/* Bot left */
+.descriptionBlock *:first-child:before {
+  left: -0.135cm;
+  bottom: -0.135cm;
+}
+/* Bot right */
+.descriptionBlock *:first-child:after {
+  bottom: -0.135cm;
+  right: -0.135cm;
+}

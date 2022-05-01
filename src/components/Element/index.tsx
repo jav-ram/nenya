@@ -11,15 +11,24 @@ import {
 } from '../Heading';
 import { ElementType } from './type';
 import InnerBlock from '../InnerBlock';
+import DescriptionBlock from '../DescriptionBlock';
 
 const Element = ({
   type,
   content,
 }: ElementType) => {
+  // TODO: use a dictionary instead of a switch
+  console.log(type, content);
   switch (type) {
     case 'innerBlock': {
       if (Array.isArray(content)) {
         return <InnerBlock>{ content }</InnerBlock>;
+      }
+      return null;
+    }
+    case 'descriptionBlock': {
+      if (Array.isArray(content)) {
+        return <DescriptionBlock>{ content }</DescriptionBlock>;
       }
       return null;
     }
@@ -67,7 +76,7 @@ const Element = ({
     }
     case 'txt': {
       const inside = content[0] as string;
-      if (!_.isEmpty(inside.trim())) {
+      if (!_.isEmpty(inside.replace(' ', ''))) {
         return <span>{ inside }</span>;
       }
       return null;
@@ -87,7 +96,7 @@ const Element = ({
     }
     default: {
       const inside = content[0] as string;
-      if (!_.isEmpty(inside.trim())) {
+      if (!_.isEmpty(inside.replace(' ', ''))) {
         return <span>{ inside }</span>;
       }
       return null;

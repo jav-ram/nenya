@@ -67,6 +67,15 @@ const TTRPG_LANG = (() => {
               ...Prism.languages.markdown,
             },
           },
+          descriptionBlock: {
+            pattern: /^[[][^\]]*\](?!\()/gm,
+            lookbehind: true,
+            greedy: true,
+            inside: {
+              punctuation: /\[|\]/,
+              ...Prism.languages.markdown,
+            },
+          },
           ...Prism.languages.markdown,
         },
       },
@@ -78,6 +87,7 @@ const TTRPG_LANG = (() => {
     getInstance: () => {
       if (_.isEmpty(ttrpgLanguage)) {
         ttrpgLanguage = createInstance();
+        console.log(ttrpgLanguage);
       }
       return ttrpgLanguage;
     },
