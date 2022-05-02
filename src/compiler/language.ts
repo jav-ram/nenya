@@ -8,6 +8,8 @@ const TTRPG_LANG = (() => {
   const createInstance = () => {
     // @ts-ignore
     delete Prism.languages.markdown.title;
+    // @ts-ignore
+    delete Prism.languages.markdown.list;
     const inline = Prism.languages.markdown;
     Prism.languages.markdown = Prism.languages.insertBefore('markdown', 'blockquote', {
       heading1: {
@@ -36,6 +38,18 @@ const TTRPG_LANG = (() => {
         alias: 'important',
         inside: {
           punctuation: /^####/,
+        },
+      },
+      list: {
+        pattern: /(^([^\S\r\n]*\*) +[^\n]*(?:\n^(\*) +[^*\n]*))|(^([^\S\r\n]*\*) +[^\n]*)/m,
+        inside: {
+          item: {
+            pattern: /^([^\S\r\n]*\*) .*/m,
+            inside: {
+              punctuation: /^\*\s*/,
+              ...inline,
+            },
+          },
         },
       },
       elegantParagraph: {

@@ -1,0 +1,12 @@
+.item {
+  margin: 0px;
+  text-indent: 0.2cm;
+  text-transform: capitalize;
+  font-size: 0.345cm;
+  font-family: BookSanity;
+  white-space: break-spaces;
+}
+
+.item > * {
+  text-transform: none;
+}
