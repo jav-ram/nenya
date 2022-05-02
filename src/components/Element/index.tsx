@@ -12,13 +12,13 @@ import {
 import { ElementType } from './type';
 import InnerBlock from '../InnerBlock';
 import DescriptionBlock from '../DescriptionBlock';
+import List from '../List';
 
 const Element = ({
   type,
   content,
 }: ElementType) => {
   // TODO: use a dictionary instead of a switch
-  console.log(type, content);
   switch (type) {
     case 'innerBlock': {
       if (Array.isArray(content)) {
@@ -29,6 +29,12 @@ const Element = ({
     case 'descriptionBlock': {
       if (Array.isArray(content)) {
         return <DescriptionBlock>{ content }</DescriptionBlock>;
+      }
+      return null;
+    }
+    case 'list': {
+      if (Array.isArray(content)) {
+        return <List content={content} />;
       }
       return null;
     }
