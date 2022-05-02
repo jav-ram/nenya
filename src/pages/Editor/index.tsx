@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { SplitPane } from 'react-multi-split-pane';
 import { Node } from 'slate';
 
 import Editor from '../../components/Editor';
@@ -11,12 +12,16 @@ const EditorPage = () => {
   const [value, setValue] = useState<Node[]>([]);
   const onChange = useCallback((v: any) => setValue(v), [value]);
   const serializer = useCallback(serialize, [value]);
-
   return (
-    <div className={styles.container}>
+    <SplitPane
+      className={styles.Pane}
+      split="vertical"
+      defaultSizes={[50, 50]}
+      minSize={10}
+    >
       <Editor onChange={onChange} />
       <Preview value={serializer(value)} />
-    </div>
+    </SplitPane>
   );
 };
 
