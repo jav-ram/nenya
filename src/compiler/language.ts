@@ -101,7 +101,6 @@ const TTRPG_LANG = (() => {
     getInstance: () => {
       if (_.isEmpty(ttrpgLanguage)) {
         ttrpgLanguage = createInstance();
-        console.log(ttrpgLanguage);
       }
       return ttrpgLanguage;
     },

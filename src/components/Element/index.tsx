@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
 import React from 'react';
-import _ from 'lodash';
 
 import B from '../Bold';
 import I from '../Italic';
@@ -82,7 +81,7 @@ const Element = ({
     }
     case 'txt': {
       const inside = content[0] as string;
-      if (!_.isEmpty(inside.replace(' ', ''))) {
+      if (inside.length > 0) {
         return <span>{ inside }</span>;
       }
       return null;
@@ -102,7 +101,7 @@ const Element = ({
     }
     default: {
       const inside = content[0] as string;
-      if (!_.isEmpty(inside.replace(' ', ''))) {
+      if (inside.length > 0) {
         return <span>{ inside }</span>;
       }
       return null;
