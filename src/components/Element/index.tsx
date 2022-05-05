@@ -32,7 +32,6 @@ const Element = ({
       return <Paragraph isElegant>{content}</Paragraph>;
     }
     case 'paragraph': {
-      console.log(content);
       return <Paragraph>{content}</Paragraph>;
     }
     case 'heading1': {
@@ -79,7 +78,6 @@ const Element = ({
       return null;
     }
     case 'url': {
-      console.log(content);
       const titleVar = content[1];
       const urlVar = content[3];
       if (titleVar.type !== 'txt' && urlVar.type !== 'txt') {
