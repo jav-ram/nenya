@@ -31,7 +31,7 @@ const Page = ({ content, page }: PagePropsType) => {
         backgroundPositionX: `${offset}px`,
       }}
     >
-      <div className={styles.pageContent}>
+      <div className={`${styles.pageContent} pageContent`}>
         { content.map((element, idx) => <Element key={`element-${idx}`} {...element} />)}
       </div>
       <Footer page={page} />

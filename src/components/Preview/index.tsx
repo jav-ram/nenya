@@ -3,9 +3,9 @@ import { Token, TokenStream } from 'prismjs';
 
 import tokenize from '../../compiler';
 
-import styles from './preview.module.css';
 import Page from '../Page';
 import { ElementType } from '../Element/type';
+import styles from './preview.module.css';
 
 type PreviewPropsType = {
   value: string,
@@ -49,8 +49,13 @@ const Preview = ({
     }
     setCompiledContent([]);
   }, [value]);
+
   return (
     <div className={styles.previewContainer}>
+      <style>
+        { /* here will be the custom css if you want */ }
+        {}
+      </style>
       { compiledContent.map(({ content }, page) => (
         <Page key={`page-${page + 1}`} page={page + 1} content={content as ElementType[]} />
       ))}

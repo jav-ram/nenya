@@ -15,7 +15,7 @@ type BPropsType = {
 };
 
 const B = ({ children }: BPropsType) => (
-  <b className={`bold ${styles.bold}`}>{ children }</b>
+  <b className={`${styles.bold} bold`}>{ children }</b>
 );
 
 const Bold = ({ children }: BoldPropsType) => {

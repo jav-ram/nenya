@@ -15,7 +15,7 @@ type IPropsType = {
 };
 
 const I = ({ children }: IPropsType) => (
-  <i className={`italic ${styles.italic}`}>{ children }</i>
+  <i className={`${styles.italic} italic`}>{ children }</i>
 );
 
 const Bold = ({ children }: ItalicPropsType) => {

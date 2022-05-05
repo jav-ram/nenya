@@ -18,7 +18,7 @@ type APropsType = {
 
 const A = ({ children, href }: APropsType) => (
   <a
-    className={`link ${styles.link}`}
+    className={`${styles.link} link`}
     href={href}
     target="_blank"
     rel="noreferrer"

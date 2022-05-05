@@ -4,6 +4,8 @@ import React from 'react';
 import Item from './Item';
 import { ElementType } from '../Element/type';
 
+import styles from './list.module.css';
+
 type ListPropsType = {
   content: (string | ElementType)[],
 };
@@ -19,7 +21,7 @@ const List = ({ content }: ListPropsType) => {
     return element as ElementType;
   });
   return (
-    <ul>
+    <ul className={`${styles.list} list`}>
       {sanitized.map((element, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Item key={`item-${index}`} content={element.content as ElementType[]} />
