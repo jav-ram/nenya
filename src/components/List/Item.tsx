@@ -12,7 +12,7 @@ type ItemPropsType = {
 const Item = ({ content }: ItemPropsType) => {
   const elements = content.filter((el) => el.type !== 'punctuation');
   return (
-    <li className={styles.item}>
+    <li className={`${styles.item} item`}>
       { elements.map((props) => <Element {...props} />) }
     </li>
   );
