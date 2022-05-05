@@ -7,14 +7,14 @@ import { ElementType } from '../Element/type';
 import styles from './innerBlock.module.css';
 
 type InnerBlockPropsType = {
-  children: (string | ElementType)[],
+  children: ElementType[],
 };
 
 const InnerBlock = ({ children }: InnerBlockPropsType) => (
   <div className={`${styles.innerBlock} innerBlock`}>
     { children.map((element) => {
-      if (typeof element === 'string') {
-        <Element type="txt" content={[element]} />;
+      if (element.type === 'txt') {
+        <Element type="txt" content={element.content} />;
       } else {
         return <Element {...element} />;
       }

@@ -7,16 +7,16 @@ import { ElementType } from '../Element/type';
 import styles from './list.module.css';
 
 type ListPropsType = {
-  content: (string | ElementType)[],
+  content: ElementType[],
 };
 
 // TODO: support order listing
 const List = ({ content }: ListPropsType) => {
   const sanitized: ElementType[] = content
-    .filter((element) => typeof element === 'string' || element.type === 'item')
+    .filter((element) => element.type === 'txt' || element.type === 'item')
     .map<ElementType>((element) => {
     if (typeof element === 'string') {
-      return { type: 'txt', content: [element] } as ElementType;
+      return { type: 'txt', content: element } as ElementType;
     }
     return element as ElementType;
   });

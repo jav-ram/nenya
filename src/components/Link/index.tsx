@@ -7,7 +7,7 @@ import { ElementType } from '../Element/type';
 import styles from './link.module.css';
 
 type LinkPropsType = {
-  children: string | ElementType,
+  children: ElementType,
   href: string,
 };
 
@@ -28,16 +28,16 @@ const A = ({ children, href }: APropsType) => (
 );
 
 const Link = ({ children, href }: LinkPropsType) => {
-  if (typeof children === 'string') {
-    return <A href={href}>{ children }</A>;
+  if (children.type === 'txt') {
+    return <A href={href}>{ children.content }</A>;
   }
   if (Array.isArray(children.content)) {
     return (
       <A href={href}>
         {
           children.content.map((c) => {
-            if (typeof c === 'string') {
-              return <Element type="txt" content={[c]} />;
+            if (c.type === 'txt') {
+              return <Element type="txt" content={c.content} />;
             }
             return <Element {...c as ElementType} />;
           })

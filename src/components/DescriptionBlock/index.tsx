@@ -7,19 +7,12 @@ import { ElementType } from '../Element/type';
 import styles from './descriptionBlock.module.css';
 
 type DescriptionBlockPropsType = {
-  children: (string | ElementType)[],
+  children: ElementType[],
 };
 
 const DescriptionBlock = ({ children }: DescriptionBlockPropsType) => (
   <div className={`${styles.descriptionBlock} DescriptionBlock`}>
-    { children.map((element) => {
-      if (typeof element === 'string') {
-        <Element type="txt" content={[element]} />;
-      } else {
-        return <Element {...element} />;
-      }
-      return null;
-    }) }
+    { children.map((element) => <Element {...element} />) }
   </div>
 );
 
