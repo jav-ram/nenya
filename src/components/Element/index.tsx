@@ -20,54 +20,46 @@ const Element = ({
   // TODO: use a dictionary instead of a switch
   switch (type) {
     case 'innerBlock': {
-      if (Array.isArray(content)) {
-        return <InnerBlock>{ content }</InnerBlock>;
-      }
-      return null;
+      return <InnerBlock>{ content }</InnerBlock>;
     }
     case 'descriptionBlock': {
-      if (Array.isArray(content)) {
-        return <DescriptionBlock>{ content }</DescriptionBlock>;
-      }
-      return null;
+      return <DescriptionBlock>{ content }</DescriptionBlock>;
     }
     case 'list': {
-      if (Array.isArray(content)) {
-        return <List content={content} />;
-      }
-      return null;
+      return <List content={content} />;
     }
     case 'elegantParagraph': {
       return <Paragraph isElegant>{content}</Paragraph>;
     }
     case 'paragraph': {
+      console.log(content);
       return <Paragraph>{content}</Paragraph>;
     }
     case 'heading1': {
       if (Array.isArray(content) && content.length > 1) {
         const inside = content[1] as ElementType;
-        return <Heading1>{inside.content[0] as string}</Heading1>;
+        return <Heading1>{inside.content as string}</Heading1>;
       }
       return null;
     }
     case 'heading2': {
       if (Array.isArray(content) && content.length > 1) {
         const inside = content[1] as ElementType;
-        return <Heading2>{inside.content[0] as string}</Heading2>;
+        return <Heading2>{inside.content as string}</Heading2>;
       }
       return null;
     }
     case 'heading3': {
       if (Array.isArray(content) && content.length > 1) {
         const inside = content[1] as ElementType;
-        return <Heading3>{inside.content[0] as string}</Heading3>;
+        return <Heading3>{inside.content as string}</Heading3>;
       }
       return null;
     }
     case 'heading4': {
       if (Array.isArray(content) && content.length > 1) {
         const inside = content[1] as ElementType;
-        return <Heading4>{inside.content[0] as string}</Heading4>;
+        return <Heading4>{inside.content as string}</Heading4>;
       }
       return null;
     }
@@ -80,19 +72,22 @@ const Element = ({
       return <I>{inside}</I>;
     }
     case 'txt': {
-      const inside = content[0] as string;
+      const inside = content;
       if (inside.length > 0) {
         return <span>{ inside }</span>;
       }
       return null;
     }
     case 'url': {
+      console.log(content);
       const titleVar = content[1];
       const urlVar = content[3];
-      if (typeof titleVar !== 'string' && typeof urlVar !== 'string') {
+      if (titleVar.type !== 'txt' && urlVar.type !== 'txt') {
         const title = titleVar.content[0];
-        const url: string = typeof urlVar.content[0] === 'string' ? urlVar.content[0] as string : urlVar.content[0].content[0] as string;
-        return <Link href={url}>{title}</Link>;
+        const url = urlVar.content[0];
+        if (url.type === 'txt') {
+          return <Link href={url.content}>{title}</Link>;
+        }
       }
       return null;
     }
@@ -100,9 +95,9 @@ const Element = ({
       return null;
     }
     default: {
-      const inside = content[0] as string;
+      const inside = content;
       if (inside.length > 0) {
-        return <span>{ inside }</span>;
+        return <span>{ inside.toString() }</span>;
       }
       return null;
     }

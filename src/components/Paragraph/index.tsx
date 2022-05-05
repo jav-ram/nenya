@@ -7,7 +7,7 @@ import { ElementType } from '../Element/type';
 import styles from './paragraph.module.css';
 
 type ParagraphPropsType = {
-  children: (string | ElementType)[] | string | ElementType,
+  children: ElementType[] | ElementType,
   isElegant?: boolean,
 };
 
@@ -21,9 +21,6 @@ const P = ({ children, isElegant }: PPropsType) => (
 );
 
 const Paragraph = ({ children, ...props }: ParagraphPropsType) => {
-  if (typeof children === 'string') {
-    return <P {...props}>{ children }</P>;
-  }
   if (Array.isArray(children)) {
     return (
       <P {...props}>
@@ -33,14 +30,8 @@ const Paragraph = ({ children, ...props }: ParagraphPropsType) => {
       </P>
     );
   }
-  if (Array.isArray(children.content)) {
-    return (
-      <P {...props}>
-        {
-          children.content.map((c) => <Element {...c as ElementType} />)
-        }
-      </P>
-    );
+  if (children.type && children.type === 'txt') {
+    return <P {...props}>{ children.content }</P>;
   }
   return (
     <P {...props}>

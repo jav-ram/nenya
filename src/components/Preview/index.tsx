@@ -4,7 +4,7 @@ import { Token, TokenStream } from 'prismjs';
 import tokenize from '../../compiler';
 
 import Page from '../Page';
-import { ElementType } from '../Element/type';
+import { ElementNameTypes, ElementType } from '../Element/type';
 import styles from './preview.module.css';
 
 type PreviewPropsType = {
@@ -18,11 +18,11 @@ const parser = (tokens: TokenStream): ElementType[] => {
     // TODO: chekc if the string is empty
     tree.push({
       type: 'txt',
-      content: [tokens],
+      content: tokens,
     });
   } else if (typeof tokens !== 'string' && !Array.isArray(tokens)) {
     tree.push({
-      type: tokens.type,
+      type: tokens.type as ElementNameTypes,
       content: parser(tokens.content),
     });
   } else if (Array.isArray(tokens)) {
@@ -40,7 +40,7 @@ const Preview = ({
   const [compiledContent, setCompiledContent] = useState<ElementType[]>([]);
   useEffect(() => {
     // compile content
-    const tokens = tokenize(value)
+    const tokens: ElementType[] = tokenize(value)
       .filter((tkn): tkn is Token => typeof tkn !== 'string' && tkn.type === 'page')
       .map((tkn) => ({ type: 'page', content: parser(tkn.content) }));
     if (tokens.length > 0) {
