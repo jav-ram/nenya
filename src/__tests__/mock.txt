@@ -1,0 +1,44 @@
+{{
+# The Homebrewery
+
+&Welcome traveler from an antique land. Please sit and tell us of what you have seen. The unheard of monsters, who slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked. Of the vexing vocations and surprising skills you have seen.
+
+### Homebrew D&D made easy
+The Homebrewery makes the creation and sharing of authentic looking Fifth-Edition homebrews easy. It uses [Markdown](https://help.github.com/articles/markdown-basics/) with a little CSS magic to make your brews come to life.
+
+**Try it!** Simply edit the text on the left and watch it *update live* on the right.
+
+
+
+### Editing and Sharing
+When you create your own homebrew you will be given a *edit url* and a *share url*.  Any changes you make will be automatically saved to the database within a few seconds. Anyone with the edit url will be able to make edits to your homebrew. So be careful about who you share it with.
+
+Anyone with the *share url* will be able to access a read-only version of your homebrew.
+
+## Helping out
+Like this tool? Want to buy me a beer? [Head here](https://www.patreon.com/Naturalcrit) to help me keep the servers running.
+
+This tool will **always** be free, never have ads, and I will never offer any "premium" features or whatever.
+
+
+{
+## PDF Exporting
+ PDF Printing works best in Chrome. If you are having quality/consistency issues, try using Chrome to print instead.
+
+ After clicking the "Print" item in the navbar a new page will open and a print dialog will pop-up.
+ Set the **Destination** to "Save as PDF"
+ Set **Paper Size** to "Letter"
+ If you are printing on A4 paper, make sure to have the "A4 page size snippet" in your brew
+ In **Options** make sure "Background Images" is selected.
+ Hit print and enjoy! You're done!
+
+ If you want to save ink or have a monochrome printer, add the **Ink Friendly** snippet to your brew before you print
+}
+
+[
+#### Yugoloths: Fickle allies
+  Yugoloths are major players on both sides of the Blood War. The death of a yugoloth is meaningless when it occurs in the Abyss or the Nine Hells, and thus these mercenaries freely give their all in any battle even when it means fighting other yugoloths. Demons and devils both know that a yugoloth's loyalty is constantly for sale-even during a conflict on the battlefield- and a yugoloth never agrees to a contract that prohibits it from seeking a better offer. This set of circumstances prompts hellish and abys- sal armies to carry war chests with them in the hope of buying the services of the yugoloths on the other side. The war chests themselves thus become highly prized targets, which in turn leads to protective measures, such as valu- ables hidden in bags of holding or empty treasure contain- ers used to lure the enemy into a trap.
+  Regardless of the side that hires them, yugoloths almost never fight on their home plane of Gehenna despite the fact that both sides sometimes traverse it and many battles of the Blood War are fought there. A yugoloth killed in Gehenna can't be restored to life except through an exceptional ritual, so the sums required to entice one to fight on its home plane are astronomical ... and making such a bargain always draws the attention of the ultroloths.
+]
+
+}}

@@ -1,0 +1,31 @@
+.heading {
+  font-family: 'MrEaves';
+  color: #58180D;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.h1 {
+  font-size: 0.84cm;
+  margin-bottom: 0.6cm;
+}
+
+
+.h2 {
+  font-size: 0.69cm;
+  margin-top: 0.4cm;
+  margin-bottom: 0.2cm;
+  font-weight: normal;
+}
+
+.h3 {
+  font-size: 0.533cm;
+  margin-bottom: 0.1cm;
+  font-weight: normal;
+  border-bottom: 1px solid #c9ad6a;
+}
+
+.h4 {
+  font-size: 0.35cm;
+  font-weight: normal;
+}

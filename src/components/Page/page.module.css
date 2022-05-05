@@ -1,0 +1,54 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 4px 14px #888;
+  width: 21.59cm;
+  min-height: 27.94cm;
+  height: 27.94cm;
+  padding: 0px;
+  background-image: url(../../assets/images/page.jpeg);
+};
+
+.pageContents {
+  margin: 32px 64px 57px 64px;
+  width: 100%;
+  height: 100%;
+}
+
+.pageContent {
+  margin: 32px 64px 0px 64px;
+  column-count: 2;
+  column-gap: 2rem;
+  column-fill: auto;
+  height: 25.8cm;
+}
+
+.pageContent > * {
+  width: 8.3cm;
+}
+
+.pageNumber {
+  color: #c9ad6a;
+  height: 50%;
+  width: 50px;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 50px;
+  background-image: url(../../assets//images//footer.png);
+  background-size: cover;
+}
+
+.footer.rotate > * {
+  transform: rotateY(180deg);
+}
+
+.footer.rotate {
+  transform: rotateY(180deg);
+};
+
