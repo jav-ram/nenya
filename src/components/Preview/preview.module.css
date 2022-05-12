@@ -8,4 +8,25 @@
   gap: 2rem;
   align-items: center;
   flex-direction: column;
-};
+}
+
+
+.random {
+  color: red;
+}
+
+.random1 {
+  color: red;
+}
+
+.test {
+  overflow-y: scroll;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-direction: column;
+}
