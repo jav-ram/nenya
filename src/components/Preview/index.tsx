@@ -51,7 +51,7 @@ const Preview = ({
   }, [value]);
 
   return (
-    <div className={styles.previewContainer}>
+    <div className={styles.test}>
       <style>
         { /* here will be the custom css if you want */ }
         {}
